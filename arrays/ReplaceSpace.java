@@ -2,6 +2,8 @@
 // PROGRAM TO REPLACE ALL SPACES IN STRING WITH %20. ASSUMING LENGTH OF THE STRING
 // IS GIVEN AND STRING HAS ENOUGH SPACES AT END TO ACCOMODATE CHANGES.
 
+// This one is with comments
+
 package arrays;
 
 public class ReplaceSpace {
