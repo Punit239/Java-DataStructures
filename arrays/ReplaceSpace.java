@@ -1,8 +1,5 @@
 // PUNIT SHARMA :: 08/11/2014
-// PROGRAM TO REPLACE ALL SPACES IN STRING WITH %20. ASSUMING LENGTH OF THE STRING
-// IS GIVEN AND STRING HAS ENOUGH SPACES AT END TO ACCOMODATE CHANGES.
-
-// This one is with comments
+// PROGRAM TO REPLACE ALL SPACES IN STRING WITH %20.
 
 package arrays;
 
@@ -16,6 +13,7 @@ public class ReplaceSpace {
 
 	}
 	
+	// FUNCTION TO REPLACE ALL SPACES IN THE GIVEN STRING
 	public String replaceAllSpaces(String originalString){
 		
 		int originalLength = originalString.length();
@@ -28,10 +26,14 @@ public class ReplaceSpace {
 				spaceCount++;
 		}
 		
+		// AS SPACE IS REPLACED BY %20, ARRAY'S SIZE WILL INCREASE WITH EVERY REPLACEMENT.
+		// NEW LENGTH IS CALCULATED TO CREATE ANOTHER ARRAY WITH THIS LENGTH.
 		int newLength = originalLength + spaceCount * 2 + 1;
 		char[] newArray = new char[newLength];
 		newArray[--newLength] = '\0';
 		
+		// READING ORIGINAL ARRAY FROM THE END AND FILLING NEW ARRAY WITH SPACE REPLACEMENT
+		// FROM THE END
 		for(int i=originalLength-1; i>=0; i--){
 			
 			if(originalStringArray[i] == ' '){

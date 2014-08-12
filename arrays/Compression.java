@@ -14,11 +14,14 @@ public class Compression {
 
 	}
 	
+	// FUNCTION TO COMPRESS GIVEN STRING
 	public String compressString(String str){
 		
-		String compressedString = "";
+		String compressedString = ""; 
 		int count = 1;
-		char last = str.charAt(0);
+		char last = str.charAt(0); // HOLDS A CHARACTER'S FIRST OCCURENCE AMONG 
+								   // ITS CONSECTIVE OCCURENCES
+		
 		for(int i=1; i<str.length(); i++){
 			
 			if(str.charAt(i) == last)
@@ -26,6 +29,7 @@ public class Compression {
 			
 			else{
 				
+				// ADDING CHARACTER AND IS OCCURENCES
 				compressedString += last + "" + count;
 				count = 1;
 				last = str.charAt(i);
@@ -33,6 +37,8 @@ public class Compression {
 			
 		}
 		
+		// CHARACTERS AT END AND THEIR COUNT WILL NOT BE ADDED AFTER THE LOOP
+		// IS COMPLETE. HENCE THEY ARE ADDED HERE.
 		return compressedString  + last + count;
 		
 	}
