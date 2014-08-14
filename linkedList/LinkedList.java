@@ -1,8 +1,10 @@
-// PUNIT SHARMA :: 7/27/2014
+// PUNIT SHARMA :: 08/13/2014
 // PROG TO CREATE NEW LINKED LIST AND PERFORMING
 // OPERATIONS INSERT, DELETE, APPEND, DISPLAY
 
 package linkedList;
+
+import java.util.HashMap;
 
 public class LinkedList {
 	
@@ -76,5 +78,40 @@ public class LinkedList {
 		
 		System.out.println("Deleting link : " + tmp.data);
 		preNode.next = tmp.next;
+	}
+	
+	// REMOVES DUPLICATES FROM LINKED LIST
+	public void removeDuplicates(){
+		
+		if(firstLink == null)
+			return;
+		
+		Link tmp = firstLink;
+		Link previous = firstLink;
+		// HASHMAP HOLDING LINK DATA AS KEYS AND IF A PARTICULAR KEY IS SCANNED
+		// ONCE ITS CORRESPONDING VALUE IS SET TO TRUE IN HASHMAP
+		HashMap<String, Boolean> map = new HashMap<String, Boolean>();
+		
+		// TRAVERSING LIST
+		while(tmp != null){
+			
+			// IF A KEY IS THERE IN HASHMAP CURRENT LINK IS SKIPPED
+			if(map.containsKey(tmp.data))
+				previous.next = tmp.next; 
+			
+			else{
+				
+				map.put(tmp.data, true);
+				previous = tmp;
+				
+			}
+			
+			// MOVING TO MEXT NODE
+			tmp = tmp.next;
+			
+		}
+		
+		System.out.println("Duplicates removed.");
+		
 	}
 }

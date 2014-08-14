@@ -13,10 +13,16 @@ public class CheckList {
 		list1.addAtBeg("Manny");
 		list1.display();
 		list1.append("Ravi");
+		list1.addAtBeg("Manny");
+		list1.addAtBeg("Manny");
 		list1.display();
 		list1.delete(3);
 		list1.display();
 		list1.append("Susie");
+		list1.append("Ravi");
+		list1.append("JP");
+		list1.display();
+		list1.removeDuplicates();
 		list1.display();
 		
 	}
