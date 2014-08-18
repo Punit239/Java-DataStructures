@@ -13,7 +13,7 @@ public class ReplaceSpace {
 
 	}
 	
-	// FUNCTION TO REPLACE ALL SPACES IN THE GIVEN STRING
+	// METHOD TO REPLACE ALL SPACES IN THE GIVEN STRING
 	public String replaceAllSpaces(String originalString){
 		
 		int originalLength = originalString.length();
@@ -48,7 +48,6 @@ public class ReplaceSpace {
 				
 				newArray[newLength-1] = originalStringArray[i];
 				newLength--;
-				
 			}
 		}
 		

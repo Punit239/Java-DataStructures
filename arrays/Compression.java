@@ -76,7 +76,6 @@ public class Compression {
 		s.append(last);
 		s.append(Integer.toString(count));
 		return s.toString();
-		
 	}
 	
 	// RETURNS LENGTH OF COMPRESSED STRING
@@ -107,7 +106,5 @@ public class Compression {
 		}
 		
 		return size;
-		
 	}
-
 }
