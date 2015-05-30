@@ -199,7 +199,7 @@ public class LinkedListMisc2 {
 			fast = fast.next.next;
 		}
 		
-		// IF THE END NODE OF LIST WAS REACHED
+		// IF THE END NODE OF LIST WAS NOT REACHED
 		if(fast != null)
 			slow = slow.next;
 		

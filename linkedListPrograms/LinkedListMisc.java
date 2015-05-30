@@ -1,8 +1,14 @@
 // PUNIT SHARMA :: 08/13/2014
-// PROGRAM TO MOVE ALL ELEMENTS LESS THEN GIVEN NUMBER TO LEFT OF THIS NUMBER
-// AND ALL ELEMENTS GREATER THAN THIS NUMBER TO RIGHT THIS NUMBER IN THE LIST
+// PROGRAM TO :: 1. MOVE ALL ELEMENTS LESS THEN GIVEN NUMBER TO LEFT OF THIS NUMBER
+// 					AND ALL ELEMENTS GREATER THAN THIS NUMBER TO RIGHT THIS NUMBER IN 
+//					THE LIST.
+//				 2. ADD TWO NUMBERS REPRESENTED IN FORM OF LINKED LIST AND GIVE RESULT
+// 					IN FORM A LINKED LIST
 
 package linkedListPrograms;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LinkedListMisc {
 	
@@ -60,7 +66,6 @@ public class LinkedListMisc {
 		
 	}
 	
-
 	//CHECK IF LIST IS EMPTY
 	public boolean isEmpty(){
 		
@@ -132,9 +137,7 @@ public class LinkedListMisc {
 					
 					beforeStart = node;
 					beforeEnd = node;
-					
 				}
-				
 				else{
 					
 					beforeEnd.next = node;
@@ -272,7 +275,7 @@ public class LinkedListMisc {
 			
 			Link newNode = addList(l1==null ? null : l1.next,
 								   l2==null ? null : l2.next,
-									value>=10 ? 1 : 0);
+								   value>=10 ? 1 : 0);
 			result.next = newNode;
 			
 		}
