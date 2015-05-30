@@ -1,6 +1,8 @@
-// PUNIT SHARMA :: 08/13/2014
-// PROG TO CREATE NEW LINKED LIST AND PERFORMING
-// OPERATIONS INSERT, DELETE, APPEND, DISPLAY
+// PUNIT SHARMA :: 08/17/2014
+// PROGRAM ::
+// 1. TO REMOVE DUPLICATES FROM LINKED LIST
+// 2. TO FIND NTH NODE FROM LAST
+// 3. TO REVERSE A LINKED A LIST
 
 package linkedList;
 
@@ -11,18 +13,19 @@ public class LinkedList {
 	// REFERENCE TO THE FIRST LINK OF THE LIST
 	public Link firstLink;
 	
+	// USED FOR METHOD "nthFromLastAlternate"
+	static int counter;
+	
 	// CONSTRUCTOR TO INITIALIZE LINKEDLIST
 	public LinkedList(){
 		
 		firstLink = null;
-		
 	}
 
 	//CHECK IF LIST IS EMPTY
 	public boolean isEmpty(){
 		
 		return (firstLink == null);
-		
 	}
 	
 	// ADDING LINK AT THE BEGINNING OF THE LIST
@@ -31,7 +34,6 @@ public class LinkedList {
 		Link newLink = new Link(name);
 		newLink.next = firstLink;
 		firstLink = newLink;
-		
 	}
 	
 	// DISPLAY ALL LINKS IN A LIST
@@ -45,9 +47,7 @@ public class LinkedList {
 			
 			System.out.println(tmp.data);
 			tmp = tmp.next;
-			
 		}
-		
 	}
 	
 	// ADDING LINK AT THE END OF THE LIST
@@ -73,7 +73,6 @@ public class LinkedList {
 		
 			preNode = tmp;
 			tmp = tmp.next;
-		
 		}
 		
 		System.out.println("Deleting link : " + tmp.data);
@@ -103,15 +102,120 @@ public class LinkedList {
 				
 				map.put(tmp.data, true);
 				previous = tmp;
-				
 			}
 			
-			// MOVING TO MEXT NODE
+			// MOVING TO NEXT NODE
 			tmp = tmp.next;
+		}
+		System.out.println("Duplicates removed.");
+	}
+	
+	// PRINTS N'TH ELEMENT FROM LAST USING RECURSION
+	public int nthFromLast(Link tmp, int posFromLast){
+		
+		if(tmp==null)
+			return 0;
+		
+		int i = nthFromLast(tmp.next, posFromLast) + 1;
+		
+		if(i==posFromLast)
+			System.out.println(tmp.data + " is at position " + posFromLast + " from last." );
+		
+		return i;
+	}
+	
+	// ALTERNATE TO RETURN N'TH NODE FROM LAST USING RECURSION
+	public Link nthFromLastAlternate(Link tmp, int posFromLast2){
+		
+		// RECURSION CONTINUES TILL LAST NODE IS FOUND
+		if(tmp == null)
+			return null;
+		
+		Link node = nthFromLastAlternate(tmp.next, posFromLast2);
+		counter++;
+		
+		// BREAKING RECURSION WHEN COUNTER MATCHES POSITION FROM LAST
+		if(counter == posFromLast2){
 			
+			// counter SET TO 0 WHEN REQUIRED NODE IS FOUND
+			counter = 0;
+			return tmp;
+		}
+		return node;
+	}
+	
+	// RETURN N'TH NODE FROM LAST. USES TWO POINTERS TO HOLD ADDRESSES OF 
+	// FIRST AND NODE AT N UNIT FROM FIRST NODE SUCH THAT BOTH NODES ARE 
+	// N NODES APART. BOTH NODES ARE INCREMENTED TILL SECOND POINTER REACHES
+	// END. AT THIS POINT THE FISRT NODE WILL BE THE NTH NODE FROM LAST.
+	public Link nthFromLastOptimal(int posFromLast3){
+		
+		// TWO POINTERS TO HOLD DIFFERENT ADDRESSES
+		Link tmp1 = this.firstLink;
+		Link tmp2 = this.firstLink;
+		
+		if(tmp2.equals(null))
+			return null;
+		
+		// INCREMENTING SECOND POINTER TO NTH POSITION(POSITION PASSED) 
+		for(int i=0; i<posFromLast3; i++){
+			
+			if(tmp2.equals(null))
+				return null;
+			tmp2 = tmp2.next;
 		}
 		
-		System.out.println("Duplicates removed.");
+		if(tmp2 == null)
+			return null;
 		
+		// POINTERS INCREMENTED TILL POINTER TWO REACHES END OF LIST
+		while(tmp2 != null){
+			
+			tmp1 = tmp1.next;
+			tmp2 = tmp2.next;
+		}
+		
+		// RETURN POINTER ONE(NTH NODE FROM LAST) 
+		return tmp1;
+	}
+	
+	// REVERSE A LINKED LIST
+	public void reverseList(){
+		
+		Link tmp = firstLink;
+		Link currNode = tmp;
+		Link prevNode = null;
+		
+		if(tmp == null || tmp.next == null)
+			System.out.println("List is empty or has only one element.");
+		
+		while(tmp != null){
+			
+			tmp = tmp.next;
+			currNode.next = prevNode;
+			prevNode = currNode;
+			currNode = tmp;
+		}
+		
+		firstLink = prevNode;
+		System.out.println("List reversed");
+	}
+	
+	// REVERSE LINKED LIST RECURSIVELY
+	public void reverseListRecursive(Link currNode){
+		
+		if(currNode == null)
+			return;
+		
+		if(currNode.next == null){
+			
+			System.out.println("List reversed by recursion");
+			firstLink = currNode;
+			return;
+		}
+			
+		reverseListRecursive(currNode.next);
+		currNode.next.next = currNode;
+		currNode.next = null;
 	}
 }
