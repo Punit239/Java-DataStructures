@@ -11,12 +11,14 @@ public class PermutationOfStrings {
 
 		PermutationOfStrings pos = new PermutationOfStrings();
 		
-		if(pos.permutation("string check a", "string check a"))
+		if(pos.permutation("string check a", "check a string"))
 			System.out.println("Given strings are permutation of other");
 		else
 			System.out.println("Given strings are not permutation of other");
+		
+		System.out.println();
 
-		if(pos.permutationAlternate("string check a", "string check a"))
+		if(pos.permutationAlternate("string check a", "string check b"))
 			System.out.println("Given strings are permutation of other");
 		else
 			System.out.println("Given strings are not permutation of other");

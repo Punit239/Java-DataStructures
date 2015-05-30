@@ -52,7 +52,5 @@ public class ReplaceSpace {
 		}
 		
 		return new String(newArray);
-		
 	}
-
 }

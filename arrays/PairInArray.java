@@ -1,3 +1,5 @@
+// PROGRAM TO FIND PAIRS WITH THE GIVEN SUM
+
 package arrays;
 
 import java.util.HashMap;
@@ -12,6 +14,7 @@ public class PairInArray {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Find pair with sum of : ");
 		p.findPair(s.nextInt());
+		s.close();
 	}
 	
 	public void findPair(int sum){

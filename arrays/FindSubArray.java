@@ -15,7 +15,7 @@ public class FindSubArray {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Find subarray with sum : ");
 		f.findSubArray(s.nextInt());
-		
+		s.close();
 	}
 	
 	public void findSubArray(int sum){
@@ -31,6 +31,8 @@ public class FindSubArray {
 			}
 			
 			total += arr[i];	
+			// SUBTRACT ELEMENTS FROM THE BEGINNING OF THE ARRAY TILL THE TOTAL IS 
+			// LESS THAN THE DESIRED SUM. RUNS ONLY IF TOTAL EXCEEDS DESIRED SUM. 
 			while(total > sum)
 					total -= arr[start++];
 		}

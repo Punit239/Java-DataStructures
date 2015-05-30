@@ -9,7 +9,8 @@ public class Compression {
 	public static void main(String[] args) {
 
 		Compression c = new Compression();
-		String str = "abcd";
+		//String str = "abcd";
+		String str = "aaaabbbccccccdd";
 		System.out.println("Compressed string " + str + " to " + c.compressString(str) + 
 							" by \"compressString\" method");
 		System.out.println("Compressed string " + str + " to " + c.compressBetter(str) +
