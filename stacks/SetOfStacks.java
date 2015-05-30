@@ -23,7 +23,7 @@ public class SetOfStacks {
 		
 		// LINE BELOW WILL THROW ERROR AS WE HAVE NOT CREATED A SEPERATE CONSTRUCTOR
 		// WHICH CAN CREATE A STACK WITH THE GIVEN SIZE. CONCEPT REMAINS THE SAME.
-		newStack = new Stack<Integer>(stackSize);
+		//newStack = new Stack<Integer>(stackSize);
 		newStack.push(value);
 		setOfStacks.add(newStack);
 	}
